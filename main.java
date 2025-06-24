@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-// DrivingSimulation class implements the Driving Simulation which includes various actions like turn the engine on/off, accelerate (i.e. increase the speed) and apply the brakes.
+// DrivingSimulation class implements the Driving Simulation which includes various actions like turning the engine on/off, accelerating, and applying the brakes.
 public class DrivingSimulationLab {
 
-    // Initial position of the gear is P (i.e. Park)
+    // Initial gear is P (Park)
     public static String gear = "P";
-    // Initial speed is set to 0
+    // Initial speed is 0
     public static int speed = 0;
     // Engine is initially off
     public static boolean isEngineOn = false;
@@ -88,20 +88,22 @@ public class DrivingSimulationLab {
 
     // Accelerate the car
     public static void accelerate() {
-        if (isEngineOn && !gear.equals("P")) {
+        if(isEngineOn && !gear.equals("P")) {
             speed += 10;
             System.out.println("Accelerated. Current speed: " + speed + " km/h");
-        } else {
+        }
+        else{
             System.out.println("Cannot accelerate. Make sure engine is ON and gear is not in Park (P).");
         }
     }
 
     // Apply brake
     public static void brake() {
-        if (isEngineOn && speed > 0) {
-            speed = Math.max(speed - 5, 0); // Avoid negative speed
+        if(isEngineOn && speed > 0) {
+            speed = Math.max(speed - 5, 0); // prevents speed from going negative
             System.out.println("Braked. Current speed: " + speed + " km/h");
-        } else {
+        }
+        else{
             System.out.println("Cannot brake. Car is either OFF or already stationary.");
         }
     }
